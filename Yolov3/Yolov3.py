@@ -2,17 +2,17 @@ import torch
 import torch.nn as nn
 
 config = [
-    # Darknet-53 backbone
-    # First block
+    #Darknet-53 backbone
+    #First block
     (32, 3, 1),  # (out_channels, kernel_size, stride)
     (64, 3, 2),  # Downsample
     ["R", 1],    # Residual block with 1 repeat
     
-    # Second block
+    #Second block
     (128, 3, 2),  # Downsample
     ["R", 2],     # Residual block with 2 repeats
     
-    # Third block
+    #Third block
     (256, 3, 2),  # Downsample
     ["R", 8],     # Residual block with 8 repeats
     
@@ -60,6 +60,7 @@ config = [
     (256, 3, 1),
     "S",  # Scale prediction for small objects
 ]
+
 class CNNBlock(nn.Module):
     def __init__(self, in_channels, out_channels, bn_act=True, **kwargs):
         super(CNNBlock, self).__init__()
